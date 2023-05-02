@@ -8,6 +8,8 @@ CREATE TABLE "contacts" (
      )
 );
 
+SELECT * FROM contacts;
+
 CREATE TABLE "category" (
     "category_id" VARCHAR   NOT NULL,
     "category" VARCHAR   NOT NULL,
@@ -15,6 +17,8 @@ CREATE TABLE "category" (
         "category_id"
      )
 );
+
+SELECT * FROM category;
 
 CREATE TABLE "subcategory" (
     "subcategory_id" VARCHAR   NOT NULL,
@@ -24,13 +28,15 @@ CREATE TABLE "subcategory" (
      )
 );
 
+SELECT * FROM subcategory;
+
 CREATE TABLE "campaign" (
     "cf_id" INT   NOT NULL,
     "contact_id" INT   NOT NULL,
     "company_name" VARCHAR   NOT NULL,
     "description" TEXT   NOT NULL,
-    "goal" INT   NOT NULL,
-    "pledged" INT   NOT NULL,
+    "goal" REAL   NOT NULL,
+    "pledged" REAL   NOT NULL,
     "outcome" VARCHAR   NOT NULL,
     "backers_count" INT   NOT NULL,
     "country" VARCHAR   NOT NULL,
@@ -43,6 +49,8 @@ CREATE TABLE "campaign" (
         "cf_id"
      )
 );
+
+SELECT * FROM campaign;
 
 ALTER TABLE "campaign" ADD CONSTRAINT "fk_campaign_contact_id" FOREIGN KEY("contact_id")
 REFERENCES "contacts" ("contact_id");
